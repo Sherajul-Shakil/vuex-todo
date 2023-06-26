@@ -3,7 +3,9 @@
         
         <input type="text" placeholder="Add thing to do" id="input" v-model="title"  v-on:keyup.enter="addItem">
         <button class="reset-button custom-button" id='butAdd' v-on:click="addItem">Add</button>
+        <button class="reset-button custom-button" id='butDelete' v-on:click="deletAllItem">Delete All</button>
     </div>
+    
 </template>
   
 <script>
@@ -19,12 +21,28 @@ export default {
             if (this.title.trim() === '') {
                 return;
             }
+            // for(let i = 0; i < this.$store.state.items.length; i++){
+            //     if(this.$store.state.items[i].title === this.title){
+            //         alert('This item already exists');
+            //         return;
+            //     }
+            // }
+            // for(let i = 0; i < 200; i++){
+            //     this.$store.commit('addItem', {
+            //     title: this.title,
+            //     completed: false,
+            //     id: this.$store.state.items.length + 1
+            // });
+            // }
             this.$store.commit('addItem', {
                 title: this.title,
                 completed: false,
                 id: this.$store.state.items.length + 1
             });
             this.title = '';
+        },
+        deletAllItem(){
+            this.$store.commit('deleteAllItem');
         }
     }
 }

@@ -62,7 +62,7 @@ export default {
 
 input.item {
     width: 100%;
-    padding: 12px 15px 12px 35px;
+    padding: 12px 60px 12px 35px;
     font-size: 20px;
     border: none;
     box-shadow: 6px 6px 8px rgb(112, 231, 159);
